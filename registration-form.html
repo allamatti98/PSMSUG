@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./registration-form.css">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text">
+           Registration Form
+        </div>
+        <form action="./register.php" method="post">
+           <div class="form-row">
+              <div class="input-data">
+                 <input type="text" name="officerID" required>
+                 <div class="underline"></div>
+                 <label for="officer-id">Officer ID</label>
+              </div>
+              <div class="input-data">
+                 <input type="date" name="date" required>
+                 <div class="underline"></div>
+              </div>
+           </div>
+           <div class="form-row">
+              <div class="input-data">
+                  <label for="police-station">Police Station</label>
+                  <br/><br/>
+                <select id="location" name="police_station" required>
+                    <option value="">---Select Station--</option>
+                    <option value="Central Police Station">Central P.S.</option>
+                    <option value="Wandegeya">Wandegeya</option>
+                    <option value="Naalya">Naalya</option>
+                    <option value="Mengo">Mengo</option>
+                    <option value="Kanyanya">Kanyanya</option>
+                    <option value="Bukoto">Bukoto</option>
+                    <option value="Ntinda">Ntinda</option>
+                    <option value="Kiwatule">Kiwatule</option>
+                    <option value="Makerere">Makerere</option>
+                    <option value="Kireka">Kireka</option>
+                    <option value="Kyebando">Kyebando</option>
+                    <option value="Gayaza">Gayaza</option>
+                    <option value="Kawempe">Kawempe</option>
+                    <option value="Kyanja">Kyanja</option>
+                    <option value="Kisaasi">Kisaasi</option>
+                    <option value="Kamwokya">Kamwokya</option>
+
+                  </select>
+                 <div class="underline"></div>
+              </div>
+              <div class="input-data">
+                <label for="">Shift Schedule</label>
+                <br/><br/>
+              <select id="location" name="shift_schedule" required>
+                  <option value="">---Select Schedule--</option>
+                  <option value="Day">Day Shift</option>
+                  <option value="Night">Night Shift</option>                    
+                </select>
+               <div class="underline"></div>
+            </div>
+           </div>
+           <div class="form-row">
+           <div class="input-data textarea">
+              <textarea rows="8" cols="80" name="full_name" required></textarea>
+              <br />
+              <div class="underline"></div>
+              <label for="">Full Name</label>
+              <br />
+              <div class="form-row submit-btn">
+                 <div class="input-data">
+                    <div class="inner"></div>
+                    <input type="submit" value="submit">
+                 </div>
+              </div>
+        </form>
+        </div>
+</body>
+</html>

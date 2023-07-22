@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manager Dash</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    .logout-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .logout-button:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">Traffic Police Officer Search</h1>
+
+  <button class="logout-button" onclick="logout()">Logout</button>
+
+  <input type="text" id="searchInput" placeholder="Search by officer name">
+  <table id="officersTable">
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Date</th>
+    </tr>
+  </table>
+
+  <script>
+    // JavaScript code for filtering the officers in real-time
+    const searchInput = document.getElementById('searchInput');
+    const officersTable = document.getElementById('officersTable');
+
+    searchInput.addEventListener('keyup', function() {
+      const searchValue = searchInput.value.toLowerCase();
+      const rows = officersTable.getElementsByTagName('tr');
+
+      for (let i = 1; i < rows.length; i++) {
+        const officerName = rows[i].getElementsByTagName('td')[0].innerText.toLowerCase();
+        if (officerName.includes(searchValue)) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+    });
+
+    // Fetch data from the MySQL database and populate the table
+    fetch('manager-dash.php')
+      .then(response => response.json())
+      .then(officersData => {
+        const tableBody = officersTable.createTBody();
+        officersData.forEach(function(officer) {
+          const row = tableBody.insertRow();
+          row.insertCell().innerText = officer.name;
+          row.insertCell().innerText = officer.location;
+          row.insertCell().innerText = officer.date;
+        });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
+    // Function to handle logout
+    function logout() {
+      const confirmation = confirm("Are you sure you want to logout?");
+
+      if (confirmation) {
+        fetch('logout.php', {
+          method: 'POST',
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = 'index.html';
+          } else {
+            console.error('Failed to logout.');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      } else {
+        console.log("Logout canceled.");
+      }
+    }
+  </script>
+</body>
+</html>

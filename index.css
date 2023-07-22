@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://media.istockphoto.com/id/1146976107/photo/emergency-warning-red-and-blue-roof-mounted-police-led-blinker-light-bar-turned-on.jpg?s=612x612&w=0&k=20&c=IjTrl5GTDn__2vIuy25JtebLg3oGpL8l7VYs3oSZ9fs=');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: whitesmoke;
+   }
+   
+   h1 {
+    text-align: center;
+    margin-top: 50px;
+   }
+   
+   .capacity-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+   }
+   
+   button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+   }
+   
+   button:hover {
+    background-color: darkblue;
+   }
+   .capacity-section{
+    margin-top: 12%;
+   }
+   .System-Name{
+    font-size: 3em;
+    font-family: europa;
+   }
+   .question-heading{
+    font-size: 2.5em;
+    font-family: europa;
+   }
